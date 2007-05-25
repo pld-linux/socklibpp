@@ -1,5 +1,5 @@
-Summary:	-
-Summary(pl.UTF-8):	-
+Summary:	socklib++ - cross-platform networking library
+Summary(pl.UTF-8):	socklib++ - wieloplatformowa biblioteka sieciowa
 Name:		socklibpp
 Version:	0.3
 Release:	0.1
@@ -18,26 +18,32 @@ socklib++ is a networking library that provides abstraction for
 cross-platform development and high-level design.
 
 %description -l pl.UTF-8
+socklib++ to biblioteka sieciowa udostępniająca abstrakcję dla
+programowania wieloplatformowego i projektowania wysokopoziomowego.
 
 %package devel
-Summary:	-
-Summary(pl.UTF-8):	-
+Summary:	Header files fock socklib++ library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki socklib++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
+Header files fock socklib++ library.
 
 %description devel -l pl.UTF-8
+Pliki nagłówkowe biblioteki socklib++.
 
 %package static
-Summary:	-
-Summary(pl.UTF-8):	-
+Summary:	Static socklib++ library
+Summary(pl.UTF-8):	Statyczna biblioteka socklib++
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
+Static socklib++ library.
 
 %description static -l pl.UTF-8
+Statyczna biblioteka socklib++.
 
 %prep
 %setup -q
@@ -64,8 +70,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
 %doc AUTHORS ChangeLog NEWS README doc/html/*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
