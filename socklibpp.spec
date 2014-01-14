@@ -2,10 +2,10 @@ Summary:	socklib++ - cross-platform networking library
 Summary(pl.UTF-8):	socklib++ - wieloplatformowa biblioteka sieciowa
 Name:		socklibpp
 Version:	0.3
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/socklibpp/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/socklibpp/%{name}-%{version}.tar.gz
 # Source0-md5:	f5f7b48e0eb4bf46d2fd0840cb41f03f
 URL:		http://socklibpp.sourceforge.net/
 BuildRequires:	autoconf
@@ -72,7 +72,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README doc/html/*
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %ghost %{_libdir}/lib*.so.0
 
 %files devel
 %defattr(644,root,root,755)
