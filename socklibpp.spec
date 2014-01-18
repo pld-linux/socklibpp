@@ -3,14 +3,15 @@ Summary(pl.UTF-8):	socklib++ - wieloplatformowa biblioteka sieciowa
 Name:		socklibpp
 Version:	0.3
 Release:	2
-License:	LGPL
+License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/socklibpp/%{name}-%{version}.tar.gz
 # Source0-md5:	f5f7b48e0eb4bf46d2fd0840cb41f03f
 URL:		http://socklibpp.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	libstdc++-devel
+BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,6 +27,7 @@ Summary:	Header files for socklib++ library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki socklib++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
 
 %description devel
 Header files for socklib++ library.
@@ -44,6 +46,17 @@ Static socklib++ library.
 
 %description static -l pl.UTF-8
 Statyczna biblioteka socklib++.
+
+%package apidocs
+Summary:	API documentation for socklib++ library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki socklib++
+Group:		Documentation
+
+%description apidocs
+API documentation for socklib++ library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki socklib++.
 
 %prep
 %setup -q
@@ -71,16 +84,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README doc/html/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/lib*.so.0
+%doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_libdir}/libsocklibpp.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libsocklibpp.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/*.la
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/libsocklibpp.so
+%{_libdir}/libsocklibpp.la
+%{_includedir}/socklibpp
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/libsocklibpp.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/html/*
