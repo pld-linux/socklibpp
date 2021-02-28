@@ -51,9 +51,7 @@ Statyczna biblioteka socklib++.
 Summary:	API documentation for socklib++ library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki socklib++
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for socklib++ library.
